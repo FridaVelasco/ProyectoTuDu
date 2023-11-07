@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgb(177, 135, 224);
+}
+h1 {
+    color: #333;
+}
+h2{
+    color: #666;
+    text-align: center;
+}
+p {
+    color: #666;
+}
+img {
+    max-width: 300px;
+    border-radius: 50%;
+}
+li{
+    color: #333;
+    text-align: left;
+}

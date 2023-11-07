@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Página Personal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        img {
+            max-width: 300px;
+            border-radius: 50%;
+        }
+    </style>
+    <link rel="stylesheet" href="http://localhost/MVC/app/presentacion/view/style.css">
+</head>
+<body>
+    <h1>Mi Nombre  es</h1>
+    <h2 id="nombre" class="nombre_completo">Frida Velasco Barragán</h2>
+    <img src="C:\xampp\htdocs\MVC\app\presentacion\view\Imagen\IMG-20190717-WA0044.jpg" alt="Mi Foto">
+    <h2>Estudio</h2>
+    <p>Estudio en  el Instituto Técnologico de Ciudad Guzmán, estoy en la carrera de Ing. en Informatica en 9° semestre</p>
+    <p>NC: 19290643</p>
+    <p>Tengo 22 años nací el 16 de julio del 2001</p>
+    <ul>
+        <li class="cambios" onclick=cambioName(0)>Abigail</li>
+        <li class="cambios" onclick="cambioName(1)">María José</li>
+        <li class="cambios" onclick="cambioName(2)">Nayeli</li>
+        <li><a href="#" onclick="cambioName(3); return false">Regresa nombres</a></li>
+    </ul>
+    <h2>Lo que me gusta hacer</h2>
+    <p>Me gusta escuhcar música como kpop, instrumental o pop, bailar y a veces leer</p>
+
+    <script>
+        const nombres= ['Abigail','María Jóse','Nayeli'];
+        nombres.forEach(
+            (Element) =>{
+              alert(Element);
+            }
+        );
+
+        function cambioName(cambio){
+            const nombreCompleto = document.getElementById('nombre');
+
+            if(cambio == 0){
+                nombreCompleto.innerHTML = nombres[0];
+            }
+            if (cambio == 1){
+                nombreCompleto.innerHTML = nombres[1];
+            }
+            if (cambio == 2){
+                nombreCompleto.innerHTML = nombres[2];
+            }
+            if (cambio == 3) {
+                nombreCompleto.innerHTML = 'Frida Velasco Barragan';
+            }
+
+        }
+
+        function noStyles(){
+            document.styleSheets[0].disabled = true;
+            document.styleSheets[1].disabled= true;
+            console.log(document.styleSheets)
+        }
+
+        function reStyle(n){
+            noStyles()
+         
+            document.styleSheets[n].disabled = false;
+        }
+        reStyle(0)
+    </script>
+</body>
+</html>
+
+
+
+
