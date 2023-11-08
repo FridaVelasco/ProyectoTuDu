@@ -37,6 +37,6 @@ switch ($request_method) {
             break;
             
         default:
-            header("Location: /MVC/login");
+            header("Location: /login");
             break;
     }

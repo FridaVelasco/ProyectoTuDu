@@ -31,6 +31,6 @@
             //     break;
         
         default:
-            header("Location: /MVC/tareas");
+            header("Location: /tareas");
             break;
     }

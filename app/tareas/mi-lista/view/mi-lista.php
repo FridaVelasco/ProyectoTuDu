@@ -6,18 +6,18 @@
         <h3 class="text-center">Menu</h3>
         <hr><div>
                 <div class="card-body">
-                <img class="card-img-top" src="/mvc/app/imagen.jpeg" alt="Card image cap">
+                <img class="card-img-top" src="/app/imagen.jpeg" alt="Card image cap">
                     <h3>Usuario:  <?php echo $_SESSION["nombreusuario"]; ?> </h3>              
                     <a href="#" class="btn btn-dark"><i class="ri-user-fill"> </i>Perfil</a>
-                    <a href="/MVC/logout" class="btn btn-dark"><i class="ri-logout-circle-line"> </i>LogOut</a>
+                    <a href="/logout" class="btn btn-dark"><i class="ri-logout-circle-line"> </i>LogOut</a>
                 </div>
             </div>
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="/mvc/tareas/registro" class="btn btn-link">Nueva tarea</a>
+                <a href="/tareas/registro" class="btn btn-link">Nueva tarea</a>
             </li>
             <li class="list-group-item bg-primary">
-                <a href="/mvc/tareas" class="btn btn-link text-white">Mis tareas</a>
+                <a href="/tareas" class="btn btn-link text-white">Mis tareas</a>
             </li>
         </ul>
     </div>

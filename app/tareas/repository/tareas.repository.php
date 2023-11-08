@@ -12,10 +12,10 @@
         private function __construct() {
             $host=$_ENV['DB_HOST'];
             $user=$_ENV['DB_USER'];
-            $passwoord=$_ENV['DB_PASSWORD'];
+            $password=$_ENV['DB_PASSWORD'];
             $database=$_ENV['DB_DATABASE'];
 
-            $this->mysqli = new mysqli($host, $root, $passwoord, $database);
+            $this->mysqli = new mysqli($host, $user, $password, $database);
         }
         
         public static function getInstance(): TareasRepository {
@@ -61,7 +61,7 @@
             
             
             $sentencia->bind_param("iss", $idusuario, $titulo, $descri);
-echo "añadiendo parametros: $idusuario, $titulo, $descri ";
+            echo "añadiendo parametros: $idusuario, $titulo, $descri ";
             if ( !$sentencia->execute() ){
                 $this->mysqli->rollback();
                 return false;

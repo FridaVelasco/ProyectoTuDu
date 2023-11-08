@@ -21,10 +21,10 @@ if (isset($query_params)) {
         <hr>
         <ul class="list-group">
             <li class="list-group-item bg-primary">
-                <a href="/mvc/tareas/registro" class="btn btn-link text-white">Nueva tarea</a>
+                <a href="/tareas/registro" class="btn btn-link text-white">Nueva tarea</a>
             </li>
             <li class="list-group-item">
-                <a href="/mvc/tareas" class="btn btn-link">Mis tareas</a>
+                <a href="/tareas" class="btn btn-link">Mis tareas</a>
             </li>
         </ul>
     </div>

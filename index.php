@@ -38,6 +38,22 @@ foreach ($env as $key => $value) {
 <head>
     <meta charset="UTF-8">
     <meta name="Frida" content="fridavelascob@gmail.com">
+    <!-- METADATOS-->
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <meta name="descripcio" content="Descripcion de mi página web">
+         <meta name="keywords" content="tareas, paises"> <!--minimo 6 minimo 3 palabras -->
+        <!-- //indexa los buscadores con 4 valores
+        //1.index: indexa para navegadores, si lo muestra el sitio
+        //2.noindex: no lo muestra
+        //3.follow: navega al sitio original
+        //4.nofollow: no navega
+        //configuracion
+        //1.noarchive: nunca cargar de cache del sitio web
+        //2.nosnippet: no mosttrar toda la información del sitio web -->
+        <meta name="robots" content="INDEX,FOLLOW"><!--separar por coma sin espacios -->
+        <meta name="author" content="yo merengues">
+        <meta name="copuright" content="@referencia">
+    
     <title>Practica mvc</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
