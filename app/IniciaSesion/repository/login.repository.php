@@ -9,10 +9,10 @@ class UsuRepository{
     private function __construct(){
             $host=$_ENV['DB_HOST'];
             $user=$_ENV['DB_USER'];
-            $passwoord=$_ENV['DB_PASSWORD'];
+            $password=$_ENV['DB_PASSWORD'];
             $database=$_ENV['DB_DATABASE'];
 
-            $this->mysqli = new mysqli($host, $root, $passwoord, $database);
+            $this->mysqli = new mysqli($host, $user, $password, $database);
     }
     
 

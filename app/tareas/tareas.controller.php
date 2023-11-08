@@ -8,19 +8,19 @@
             if (checkSession()) 
             require_once("./app/tareas/mi-lista/controller/mi-lista.controller.php");
             else 
-            header("Location: /MVC/login");
+            header("Location: /login");
             break;
 
         case 'registro':
             if (checkSession()) 
             require_once("./app/tareas/registro/controller/registro.controller.php");
             else 
-            header("Location: /MVC/login");
+            header("Location: /login");
             break;
 
           case 'logout':
            session_destroy();
-           header("Location:  /MVC/login");
+           header("Location:  /login");
             break;
           
           

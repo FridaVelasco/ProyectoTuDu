@@ -25,10 +25,10 @@
 					<input type="password" name="pswd" placeholder="CONTRASEÑA" required="">
 					<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirma tu contraseña: </h4>
                     <input type="password" name="confirmar" placeholder="CONFIRMA CONTRASEÑA" required="">
-					<a href="/MVC/login"><button type ="submit">Sign Up</button></a>
+					<a href="/login"><button type ="submit">Sign Up</button></a>
 				
 					<div class="centrarTexto">
-					<a href="/MVC/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inicia sesión aquí&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+					<a href="/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inicia sesión aquí&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				</form>
 			</div>

@@ -1,8 +1,8 @@
 <?php
-if (!isset($path_components[1])) {
-    $path_components[1]='';
+if (!isset($path_components[$path_index + 1])) {
+    $path_components[$path_index + 1]='';
 
-    switch ($$path_components[1]) {
+    switch ($$path_components[$path_index + 1]) {
         case '':
           
         case 'login':
@@ -14,7 +14,7 @@ if (!isset($path_components[1])) {
             break;
 
         default:
-            header("Location /MVC/login");
+            header("Location /login");
             break;
     }
 }

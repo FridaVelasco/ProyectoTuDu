@@ -28,10 +28,9 @@ switch ($path_components[$path_index]) {
         session_destroy();
         header ("Location: /tareas");
         break;
-    case 'app-paises':
-        requiere_once('./app/paises/paises.controller.php');
-        break;
-    default:
+    case "paises":
+        require_once("./app/paises/paises.controller.php");
+        break;default:
     header("HTTP/1.1 404 Not Found");
     break;
 }

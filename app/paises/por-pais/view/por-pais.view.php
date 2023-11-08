@@ -15,7 +15,7 @@
         <input type="text" 
             class="col-12 form-control" 
             value=""
-            placeholder="putito"
+            placeholder="Pais"
             onkeypress = "onKeyPress(event)" autofocus>
 
         <hr class="col-12">

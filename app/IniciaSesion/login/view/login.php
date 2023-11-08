@@ -32,7 +32,7 @@
 					<br>
 					<br>
 					<div class="centrarTexto">
-						<a  text-aling="center" href="/MVC/signup" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deseas Registrarte  Has Click Aqui&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<a  text-aling="center" href="/signup" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deseas Registrarte  Has Click Aqui&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				</form>
 			</div>
