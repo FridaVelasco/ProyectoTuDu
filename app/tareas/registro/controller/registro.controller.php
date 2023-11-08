@@ -22,6 +22,6 @@
             }
 
         default:
-            header("Location: /MVC/tareas/mi-lista");
+            header("Location: /tareas/mi-lista");
             break;
     }

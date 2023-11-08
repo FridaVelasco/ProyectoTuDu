@@ -40,7 +40,7 @@ switch ($request_method) {
              $_SESSION["nombreusuario"] =  $infousuario["nombre"];
 
             
-            header("Location: /MVC/tareas");
+            header("Location: /tareas");
             exit(); // Salir después de la redirección
 
     default:

@@ -6,7 +6,7 @@ if (!isset($path_components[$path_index + 1])) {
         case '':
           
         case 'login':
-            require_once("app/IniciaSesion/login/controller/login.controller.php")
+            require_once("./app/IniciaSesion/login/controller/login.controller.php")
             break;
 
         case 'registro':
