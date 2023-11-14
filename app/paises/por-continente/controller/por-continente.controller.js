@@ -9,8 +9,6 @@ let regiones = {
     America: "americas",
 };
 
-//let countries = [];
-
 let continentes = Object.keys(regiones);
 
 for(let continente of continentes){

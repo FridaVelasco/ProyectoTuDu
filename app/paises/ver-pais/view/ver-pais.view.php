@@ -15,9 +15,6 @@
         <div class="card-footer text-center">
             <a class="btn btn-primary w-100" href="#">Regresar</a>
         </div>
-        <!-- <div class="card-footer text-center">
-                <a href="https://restcountries.com/" target="_blank" class="btn btn-primary">Api info...</a>
-        </div> -->
     </div>
 </div>
 
