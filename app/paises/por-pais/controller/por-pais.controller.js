@@ -16,7 +16,8 @@ function onKeyPress(evt) {
 }
 
 async function requestData(countryName){
-    let url = `https://restcountries.com/v3.1/name/${countryName}?fields=name,flag,flags,cca3,capital,population`;
+    let url = `https://restcountries.com/v3.1/name/${countryName}`;
+    //let url = `https://restcountries.com/v3.1/name/${countryName}?fields=name,flag,flags,cca3,capital,population`;
     let respuesta = await fetch(url);
     await respuesta.json().then (
         (paises) => {

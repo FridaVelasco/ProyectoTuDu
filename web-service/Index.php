@@ -1,93 +1,95 @@
 <?php
+    // Trabajando variables de entorno
+    $env = parse_ini_file(".env");
+    //print_r($env);
 
-$maxlifetime=3; //Tiempo maximo de vida de la sesion en segundos
-$secure=true; //Habilitar seguridad de la sesion
-$http_only=true; //Otro tipo de peticion aparte de http es SOAP
-$samesite='lax';//lax es el valor para indicar que solo venga del propio servidor y no de un externo
-$host=$_SERVER['HTTP_HOST'];
-
-// session_set_cookie_params([
-//     'lifetime' => $maxlifetime,
-//     'path' => './',
-//     'domain' => $host,
-//     'secure' => $secure,
-//     'httpOnly' => $http_only,
-//     'samesite' => $samesite
-// ]);
-
-session_start([
-    // 'cookie_lifetime' => 60*60*4
-]);
-
-function checkSession():bool{
-    return isset($_SESSION['usuarios']) && $_SESSION['usuarios']!=null;
-}
-
-// Chambeando con variales de entorno
-$env = parse_ini_file(".env");
-
-foreach ($env as $key => $value) { 
-    $_ENV[$key] = $value;
-}
-
+    foreach ( $env as $llave => $value ){
+        $_ENV[$llave] = $value;
+    }
 ?>
 
+<!DOCTYPE html>
+<html lang="es">
 
-<!doctype html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="Frida" content="fridavelascob@gmail.com">
-    <title>Practica mvc</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Service</title>
 </head>
+
 <body>
+    <!-- <h1>Hola Mundo</h1> -->
+        <?php
+        //configurar cabeceras para el servicio
+        //configurando el tipo de contenido para las Respuestas
+        header("Content-Type: application/json");
+        //configurar el acceso para cualquier origen y metodos permitidos
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
+        header("Allow: GET, POST, PUT, PATCH, DELETE, OPTIONS");
 
-    <!-- <h1>Hola Gente</h1> -->
-    <?php 
+        //  Incluyendo todas las constantes que usaremos
+        include_once("./constantes/constantes.php");
 
-    $request_url = $_SERVER['REQUEST_URI'];
-    $request_method = $_SERVER['REQUEST_METHOD'];
-    //echo $request_url;
+        /*
+    *
+    *   El objeto _SERVER de PHP contiene la información de la petición, tal como la URL solicitada
+    *
+    */
+        $request_uri = $_SERVER['REQUEST_URI'];
 
-    $request_components = parse_url($request_url);
-    if(count($request_components)> 1)
-    {
-    parse_str($request_components['query'], $query_params);
-    $params = json_encode($query_params);
-    }
-    $path = ltrim($request_components['path'],"/");
-    $path_components = explode("/", $path);
-    $components = json_encode($path_components);
+        // Método solicitado:
+        $request_method = $_SERVER['REQUEST_METHOD'];
 
-    // $query
-    //echo"
-    //<br>
+        // echo $request_uri, $request_method;
 
-    //<h2>Recuro Solicitado: {$request_components['path']}</h2>
-    //<h3>Query params: {$params}</h3>
-    //<h3>Componentes URL: {$components}</h3>
-    //";
+        // Obteniendo la información completa de la URL
+        $url_components = parse_url($request_uri);
+        $query_params = array();
 
-    require_once("./app.controller.php");
-
-    ?>
-    <?php
-        if (checkSession()) {
-            echo"<div class='card mt-5 bg-dark p-3 text-center'>
-            <h4 class='text-white'>Correo: {$_SESSION['usuarios']}</h4>
-            </div>";
-        }else{
-            echo"<div class='card mt-5 bg-dark p-3 text-center'>
-                <h4 class='text-white'>No se ha seteado la variable session</h4>
-                </div>";
+        $path_url = $url_components['path'];
+        $path_url = ltrim($path_url, '/');
+        if ( isset( $url_components['query'] ) ) {
+            parse_str($url_components['query'], $query_params);
         }
-    ?>
 
+
+        $path_components = explode('/',  $path_url);
+
+        $api_check_index = 1;
+        $version_check_index = $api_check_index + 1;
+        $path_index = $version_check_index + 1;
+
+        // echo json_encode($path_components);
+        if (!isset($path_components[$api_check_index])
+            ||
+            $path_components[$api_check_index] != "api" ) {
+            //notifica de no existencia de url
+            header(HTTP_CODE_400);
+            //romper ejecucion
+            exit();
+        }
+
+        if (!isset ($path_components[$version_check_index])
+            ||
+            $path_components[$version_check_index]) {
+            //notifica mala peticion
+            header(HTTP_CODE_400);
+            //rompe ejecucion
+            exit();
+        }
+        
+        switch ($path_components[$version_check_index]) {
+            case 'v-11':
+                require_once("./v-1/app.controller.php");
+                break;
+            
+            default:
+                header(HTTP_CODE_400);
+                exit();
+        }
+
+        ?>
 </body>
 
 </html>
